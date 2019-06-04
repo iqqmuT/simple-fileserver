@@ -57,27 +57,29 @@ $files = scan_files();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href=".engine/bootstrap-4.1.3.min.css">
 
-    <title>files</title>
+    <title>Files</title>
+    <style>
+      body { margin-top: 2rem; margin-bottom: 2rem; }
+      .card-upload { margin-bottom: 2rem; }
+    </style>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>files</h1>
-        </div>
-      </div> <!-- .row -->
-
-      <form method="post" enctype="multipart/form-data">
-        <div class="row">
-          <div class="col-6">
-            <input type="file" class="form-control-file" id="file-input" name="file" required>
-          </div>
-          <div class="col-6 text-right">
-            <input type="submit" value="Upload" name="submit" class="btn btn-default">
-          </div>
-        </div> <!-- .row -->
-      </form>
-
+      <div class="card card-upload">
+        <div class="card-body">
+          <div class="card-title"><h4>Upload</h4></div>
+          <form method="post" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-6">
+                <input type="file" class="form-control-file" id="file-input" name="file" required>
+              </div>
+              <div class="col-6 text-right">
+                <input type="submit" value="Upload" name="submit" class="btn btn-primary">
+              </div>
+            </div> <!-- .row -->
+          </form>
+        </div> <!-- .card-body -->
+      </div> <!-- .card -->
 
       <div class="row">
         <div class="col">
