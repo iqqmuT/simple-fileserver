@@ -13,7 +13,7 @@ function try_upload_file() {
   if (isset($_POST['submit'])) {
     $target_file = './' . basename($_FILES['file']['name']);
     if (!move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
-      die('Sorry, there was an error uploading yuor file. Please refresh and try again.');
+      die('Sorry, there was an error uploading your file. Please refresh and try again.');
     }
   }
 }
