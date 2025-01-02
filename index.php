@@ -13,7 +13,16 @@ function try_upload_file() {
   if (isset($_POST['submit'])) {
     $target_file = './' . basename($_FILES['file']['name']);
     if (!move_uploaded_file($_FILES['file']['tmp_name'], $target_file)) {
-      die('Sorry, there was an error uploading your file. Please refresh and try again.');
+      $errno = $_FILES['file']['error'];
+      $error = 'Unknown error.';
+      if ($errno === 1) {
+        $error = 'File exceeds upload_max_filesize directive of php.ini (' . ini_get('upload_max_filesize') . ')';
+      } else if ($errno === 2) {
+        $error = 'File exceeds MAX_FILE_SIZE form attribute';
+      } else if ($errno === 3) {
+        $error = 'Only partially uploaded.';
+      }
+      die('Sorry, there was an error uploading your file: ' . $error);
     }
   }
 }
